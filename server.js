@@ -8,7 +8,7 @@ const www = require('./www.js')
 
 
 // Constants
-const PORT = 8181;
+const PORT = 8080;
 const HOST = '0.0.0.0';
 const ips = network.getIps();
 
