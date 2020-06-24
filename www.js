@@ -8,7 +8,10 @@ exports.getIndex = function(ips) {
                 
                 <script type = "text/javascript">
                     $(document).ready(function() {
-                        $.get("http://` + env.BACKEND_HOST + `:` + env.BACKEND_PORT + `/").done(function (data) {
+			var host = '` + env.BACKEND_HOST + `';//env.BACKEND_HOST ? env.BACKEND_HOST : location.hostname;
+			if(!host) { host = location.hostname; }
+			console.log('backend: ', host, ` + env.BACKEND_PORT + `);
+                        $.get('http://' + host + ':` + env.BACKEND_PORT + `/').done(function (data) {
                             $('#div1').html(data);
                         });
                     });
