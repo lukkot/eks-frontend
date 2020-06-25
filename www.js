@@ -10,8 +10,12 @@ exports.getIndex = function(ips) {
                     $(document).ready(function() {
 			var host = '` + env.BACKEND_HOST + `';//env.BACKEND_HOST ? env.BACKEND_HOST : location.hostname;
 			if(!host) { host = location.hostname; }
+
+                        var path = '` + env.BACKEND_PATH + `';
+                        if(!path) { path = ""; }
+
 			console.log('backend: ', host, ` + env.BACKEND_PORT + `);
-                        $.get('http://' + host + ':` + env.BACKEND_PORT + `/').done(function (data) {
+                        $.get('http://' + host + ':` + env.BACKEND_PORT + `' + path).done(function (data) {
                             $('#div1').html(data);
                         });
                     });
